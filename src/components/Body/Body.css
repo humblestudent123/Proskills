@@ -103,3 +103,57 @@
 }
 
 
+.blocks-container {
+  display: flex;
+  gap: 30px; /* отступ между карточками */
+  justify-content: center; /* центрирование по горизонтали */
+  flex-wrap: wrap; /* перенос на мобильных */
+}
+
+/* Можно сделать одинаковую ширину */
+.block-1, .block-2, .block-3 {
+  flex: 1;
+  max-width: 350px; /* или оставить как есть — если нужна фиксированная ширина */
+}
+
+.block-1 {
+    border-radius: 4px;
+    max-width: 300px;
+    color: black;
+    background-color: white;
+    margin-top: 30px;
+    padding: 30px;
+    border-radius: 30px;
+}
+
+.block-1 h1 {
+  font-size: 2rem; 
+  margin-bottom: 0; /* убираем отступ под заголовком */
+  line-height: 1.4;
+}
+
+.block-2 {
+    border-radius: 4px;
+    max-width: 300px;
+    color: black;
+    background-color: white;
+    margin-top: 30px;
+    padding: 30px;
+    border-radius: 30px;
+}
+
+.block-3 {
+    border-radius: 4px;
+    max-width: 300px;
+    color: black;
+    background-color: white;
+    margin-top: 30px;
+    padding: 30px;
+    border-radius: 30px;
+}
+
+
+#p1 {
+  margin-top: 0;    /* убираем отступ перед параграфом (вместе с h1 margin) */
+  font-size: 1.2rem;
+}
