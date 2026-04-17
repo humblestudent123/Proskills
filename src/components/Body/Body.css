@@ -51,7 +51,6 @@
 
 /* Стиль для списка (например, с точками) */
 .list li::before {
-  content: "•";
   color: #fff;
   font-weight: bold;
   position: absolute;
@@ -94,6 +93,15 @@
 
 .img-section img {
 
+  padding-right: 20px; 
+  width: 600px;
+  height: auto;
+  border-radius: 20px;     /* для красоты */
+  object-fit: cover;
+  transform: translateX(50px);
+}
+
+.img-section1 img {
   padding-right: 20px; 
   width: 600px;
   height: auto;
@@ -167,18 +175,20 @@
 }
 
 
+
+
 .black-block-1 #ico {
     width: 25px;
 }
 
-.black-block-1 {
-    border-radius: 4px;
-    max-width: 300px;
-    color: rgb(255, 255, 255);
-    background-color: rgba(61, 61, 61, 0.7);
-    margin-top: 30px;
-    padding: 30px;
-    border-radius: 30px;
+.black-block-2 {
+  border-radius: 30px;     /* учтено в вашем CSS */
+  max-width: 300px;
+  color: #fff;
+  background-color: rgba(61, 61, 61, 0.7);
+  padding: 30px;
+  flex-shrink: 0;         /* чтобы не сжимались */
+  min-width: 280px;       /* рекомендуется вместо max-width для better responsive behavior */
 }
 
 
@@ -192,3 +202,96 @@
     padding: 30px;
     border-radius: 30px;
 } */
+
+.blocks-container2 #career-title {
+    
+    padding-left: 30px;
+}
+
+.cards-grid {
+  display: flex;
+  gap: 24px; /* отступ между карточками */
+  justify-content: center;
+  flex-wrap: wrap; /* перенос на новую строку при нехватке места */
+}
+
+.black-block-1,
+.black-block-2,
+.black-block-3 {
+  flex: 1 1 300px; /* растягиваются, но не сжимаются ниже 300px */
+  min-width: 300px;
+  max-width: 450px;
+}
+
+/* Доп. стили для карточек (пример) */
+.black-block-1,
+.black-block-2,
+.black-block-3  {
+  border-radius: 30px;
+  padding: 30px;
+  color: #fff;
+  background-color: rgba(61, 61, 61, 0.7);
+  margin-top: 30px;
+}
+
+
+
+.black-block-img img,
+.black-block-1 img {
+  width: 48px; /* или whatever size you need */
+  height: auto;
+}
+
+
+
+.end #end-h1 {
+    width: 500px;
+    font-size: 40px
+}
+.end #end-p {
+    width: 350px;
+    font-size: 20px;
+}
+
+
+
+.black-block-3 #image-end {
+    width: px;
+    height: 100px;
+}
+
+
+.end-and-image {
+  display: flex;
+  align-items: center;          /* выравнивание по вертикали — по центру */
+  justify-content: space-between; /* текст слева, фото справа */
+  gap: 40px;                    /* отступ между блоками */
+  padding: 30px;
+}
+
+.end {
+  flex: 1;
+  max-width: 65%;
+}
+
+.end h2 {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.end p {
+  font-size: 20px;
+  line-height: 1.6;
+}
+
+.img-section1 {
+  flex-shrink: 0;         /* чтобы фото не сжималось */
+  width: 35%;             /* или фиксированную ширину, напр. 400px */
+  max-width: 400px;
+}
+
+.img-section1 img {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;     /* для красоты (опционально) */
+}
