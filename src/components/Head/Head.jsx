@@ -1,4 +1,6 @@
 import './Head.css';
+import '../Body/Body.css'
+import Body from '../Body/Body.jsx';
 
 function head() {
   return (
@@ -16,6 +18,7 @@ function head() {
   </ul>
 </div>
         
+    <Body />
         
     </div>
   );
