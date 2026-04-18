@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'; // Добавьте импорт Link
 import './Body.css';
 
 export default function Body() {
@@ -18,13 +19,13 @@ export default function Body() {
           </ul>
 
           <div className="button-container">
-            <a href="#" className="btn-start">Начать</a>
+            <Link to="/page2" className="btn-start">Начать</Link>
           </div>
         </div>
 
         {/* Фото справа */}
         <div className="img-section">
-          <img src="../ai-logo.png" alt="Логотип ИИ" />
+          <img src="/ai-logo.png" alt="Логотип ИИ" />
         </div>
       </div>
 
@@ -52,7 +53,7 @@ export default function Body() {
 
         <div className="cards-grid">
           <div className="black-block-1">
-            <img src="plus.png" alt="Иконка плюса" />
+            <img src="/plus.png" alt="Иконка плюса" />
             <h3>Построить карьеру проще если умеещь работать с нейросетями!</h3>
             <p>
               Согласно исследованию «Русской школы управления», 
@@ -62,7 +63,7 @@ export default function Body() {
 
           <div className="black-block-2">
             <div className="black-block-img">
-              <img src="plus.png" alt="Иконка плюса" />
+              <img src="/plus.png" alt="Иконка плюса" />
             </div>
             <h3>ИИ востребован на рынке труда</h3>
             <p>
@@ -71,11 +72,9 @@ export default function Body() {
             </p>
           </div>
 
-
-          
           <div className="black-block-3">
             <div className="black-block-img">
-              <img src="plus.png" alt="Иконка плюса" />
+              <img src="/plus.png" alt="Иконка плюса" />
             </div>
             <h3>Работа с нейросетями — это компетенция, а не мгновенное решение</h3>
             <p>
@@ -85,20 +84,19 @@ export default function Body() {
           </div>
         </div>
 
-<div className="end-and-image">
-  <div className="end">
-    <h2>Используйте ИИ для эффективного решения прикладных задач</h2>
-    <p>
-      Освойте ИИ-инструменты на реальных кейсах и выполняйте задачи за минуты вместо часов. 
-      Практика охватывает направления от концепт-арта до аналитики данных — дизайн, IT, маркетинг, бизнес и многое другое.
-    </p>
-  </div>
+        <div className="end-and-image">
+          <div className="end">
+            <h2>Используйте ИИ для эффективного решения прикладных задач</h2>
+            <p>
+              Освойте ИИ-инструменты на реальных кейсах и выполняйте задачи за минуты вместо часов. 
+              Практика охватывает направления от концепт-арта до аналитики данных — дизайн, IT, маркетинг, бизнес и многое другое.
+            </p>
+          </div>
 
-  <div className="img-section1">
-    <img src="../Group-Skills.png" alt="Группа навыков ИИ" />
-  </div>
-</div>
-
+          <div className="img-section1">
+            <img src="/Group-Skills.png" alt="Группа навыков ИИ" />
+          </div>
+        </div>
       </div>
     </div>
   );

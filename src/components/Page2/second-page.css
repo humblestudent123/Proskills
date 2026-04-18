@@ -1,0 +1,134 @@
+/* =========================
+   BASE
+========================= */
+body  {
+  background-color: rgb(26, 26, 26);
+
+}
+
+
+.learn-container {
+  background: #0b0b0b;
+  color: #fff;
+  min-height: 100vh;
+  padding: 60px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  font-family: Inter, sans-serif;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.learn-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 6px 14px;
+  background: #ffffff;
+  color: #000;
+  border-radius: 20px;
+  font-size: 12px;
+  margin-bottom: 15px;
+}
+
+.learn-header h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  opacity: 0.7;
+  font-size: 16px;
+}
+
+/* =========================
+   THEORY CARDS
+========================= */
+
+.theory {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 25px;
+  backdrop-filter: blur(6px);
+  transition: 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.card h2 {
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.card p,
+.card li {
+  opacity: 0.85;
+  line-height: 1.6;
+}
+
+.card ul {
+  margin-top: 10px;
+  padding-left: 20px;
+}
+
+/* =========================
+   SUMMARY
+========================= */
+
+.summary {
+  margin-top: 40px;
+  padding: 20px;
+  border-left: 3px solid #fff;
+}
+
+.summary h2 {
+  margin-bottom: 10px;
+}
+
+/* =========================
+   ACTION BUTTON
+========================= */
+
+.actions {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.next-btn {
+  padding: 14px 28px;
+  border-radius: 12px;
+  border: none;
+  background: #fff;
+  color: #000;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.next-btn:hover {
+  background: #cfcfcf;
+  transform: translateY(-2px);
+}
+
+
+
+
+.card {
+     background-color: rgb(31, 31, 31);
+     color: white;
+}
