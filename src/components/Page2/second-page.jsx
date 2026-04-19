@@ -1,12 +1,12 @@
 import './second-page.css';
 import { Link } from 'react-router-dom';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
+import NavModal from '../NavModal/NavModal'; // 👈 отдельный компонент
 
 export default function Page2() {
 
-  const ref1 = useRef(null);
-  const ref2 = useRef(null);
-  const ref3 = useRef(null);
+  const refTheory = useRef(null);
+  const [isOpen, setIsOpen] = useState(false);
 
   const scrollToSection = (ref) => {
     ref.current?.scrollIntoView({ behavior: 'smooth' });
@@ -15,19 +15,22 @@ export default function Page2() {
   return (
     <div className="learn-container">
 
-        <main className="content">
+      {/* ================= CONTENT ================= */}
+      <main className="content">
 
-    <header className="learn-header">
-      <p className="badge">Модуль 1</p>
-      <h1>Введение в искусственный интеллект</h1>
-      <p className="subtitle">
-        Пойми базу, прежде чем переходить к практике
-      </p>
-    </header>
+        <header className="learn-header">
+          <p className="badge">Модуль 1</p>
+          <h1>Введение в искусственный интеллект</h1>
+          <p className="subtitle">
+            Пойми базу, прежде чем переходить к практике
+          </p>
+        </header>
 
-    <section className="theory">
+        <section className="theory">
 
-      <div className="card" ref={ref1}>
+
+
+        <div className="card" ref={refTheory}>
         <h2>Что такое ИИ?</h2>
         <p>Искусственный интеллект — это область компьютерных наук, которая занимается созданием систем, способных выполнять задачи, требующие человеческого мышления. Речь идёт не о “разумных машинах” в человеческом смысле, а о программах, которые умеют анализировать данные, находить закономерности, делать выводы и решать задачи.
               
@@ -44,9 +47,14 @@ export default function Page2() {
             Главная ценность искусственного интеллекта заключается в том, что он позволяет обрабатывать огромные объёмы данных быстрее и точнее, чем человек. Это делает его мощным инструментом, который меняет подход к работе во многих сферах — от образования до промышленности.</p>
       </div>
 
-      <div className="card" ref={ref2}>
-        <h2>Как работает нейросеть?</h2>
-        <p>            Нейросеть — это система, которая умеет находить закономерности в данных и использовать их для решения задач. Её принцип работы вдохновлён устройством человеческого мозга, но реализован в виде математической модели.
+
+
+
+
+
+        <div className="card" ref={refTheory}>
+           <h2>Как работает нейросеть?</h2>
+        <p>Нейросеть — это система, которая умеет находить закономерности в данных и использовать их для решения задач. Её принцип работы вдохновлён устройством человеческого мозга, но реализован в виде математической модели.
 
             В основе нейросети лежат “нейроны” — простые вычислительные элементы. Каждый нейрон получает входные данные, обрабатывает их и передаёт результат дальше. Эти нейроны соединены между собой слоями: входной слой принимает информацию, скрытые слои её обрабатывают, а выходной выдаёт результат.
 
@@ -59,9 +67,10 @@ export default function Page2() {
             Важно понимать: нейросеть не “понимает” информацию. Она не мыслит как человек, а просто вычисляет наиболее вероятный результат на основе того, чему её научили.
 
             Проще говоря, нейросет  ь — это система, которая учится на примерах и со временем становится всё точнее, решая задачи, которые раньше считались сложными для компьютеров.</p>  
-      </div>
+        </div>
 
-      <div className="card" ref={ref3}>
+
+      <div className="card" ref={refTheory}>
         <h2>Где используется ИИ?</h2>
         <ul>
           <li>Чат-боты (ChatGPT)</li>
@@ -71,54 +80,34 @@ export default function Page2() {
         </ul>
       </div>
 
-    </section>
+        </section>
 
-    <section className="summary">
-      <h2>Главное из урока</h2>
-      <p>
-        Искусственный интеллект и нейросети работают не как “разум”, а как системы, которые учатся на больших объёмах данных, находят закономерности и используют их для решений. Их главная сила в том, что они со временем становятся точнее и помогают человеку быстрее и эффективнее решать сложные задачи.
-      </p>
-    </section>
+      </main>
 
-  </main>
+      {/* ================= SIDEBAR ================= */}
+      <aside className="sidebar right">
 
-  {/* 🔥 ПРАВАЯ ПАНЕЛЬ */}
-  <aside className="sidebar right">
+        <Link to="/test" className="next-btn">
+          Начать тест
+        </Link>
 
+        <button
+          className="nav"
+          onClick={() => setIsOpen(true)}
+        >
+          <img src="../list-ico-site-white.ico" alt="" />
+          <span>Навигация по темам</span>
+        </button>
 
-    <Link to="/test" className="next-btn">
-      
-      <div className="text-next-btn">
+      </aside>
 
-      Начать
-
-      </div>
-      
-    </Link>
-
-
-
-
-    
-
-    <a href="" className="nav">
-      <div className="nav-img">
-        <img src="../list-ico-site-white.ico" alt="" />
-      </div>
-      
-      <span>Навигация по теме</span>
-    </a>
-
-    
-
-    <button onClick={() => scrollToSection(ref1)}>Что такое ИИ</button>
-    <button onClick={() => scrollToSection(ref2)}>Как работает нейросеть</button>
-    <button onClick={() => scrollToSection(ref3)}>Где используется</button>
-
-    
-
-  </aside>
-
+      {/* ================= MODAL (ОТДЕЛЬНЫЙ КОМПОНЕНТ) ================= */}
+      <NavModal
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+        scrollToSection={scrollToSection}
+        refTheory={refTheory}
+      />
 
     </div>
   );

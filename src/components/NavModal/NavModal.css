@@ -1,0 +1,136 @@
+#head {
+    text-align: left;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(6px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 9999;
+
+  animation: fadeIn 0.2s ease;
+}
+
+.modal {
+  width: 500px;
+  background: #1a1a1a;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+
+  padding: 22px;
+
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.6);
+
+  animation: popIn 0.25s ease;
+}
+
+.modal h2 {
+  font-size: 18px;
+  margin-bottom: 18px;
+  color: #ffffff;
+  text-align: center;
+}
+
+/* =========================
+   BUTTONS INSIDE MODAL
+========================= */
+
+.modal-actions {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+}
+
+.modal-actions button,
+.modal-actions a {
+  padding: 12px 14px;
+
+  border-radius: 12px;
+  border: none;
+
+  font-size: 15px;
+  text-align: center;
+  cursor: pointer;
+
+  transition: 0.2s ease;
+
+  text-decoration: none;
+}
+
+/* Теория */
+.modal-actions button {
+  background: #ffffff;
+  color: #000;
+  font-weight: 500;
+  width: 100px;
+}
+
+.modal-actions button:hover {
+  background: #e6e6e6;
+  transform: translateY(-2px);
+}
+
+/* Тест */
+.modal-actions a {
+  background: #2a2a2a;
+  color: #fff;
+  width: 80px;
+}
+
+.modal-actions a:hover {
+  background: #3a3a3a;
+  transform: translateY(-2px);
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes popIn {
+  from {
+    transform: scale(0.92);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.modal-link {
+  width: 100%;
+  padding: 12px 14px;
+
+  background: white;
+  color: black;
+
+  border-radius: 12px;
+  text-decoration: none;
+
+  font-weight: 500;
+  text-align: center;
+
+  transition: 0.2s ease;
+}
+
+.modal-link:hover {
+  background: #e6e6e6;
+}
