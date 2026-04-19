@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import '../Page2/second-page.css';
 import NavModal from '../NavModal/NavModal'; 
 
@@ -99,6 +100,10 @@ image.save("output.png")
 
       {/* Кнопка навигации */}
       <aside className="sidebar right">
+        <Link to="/models-test" className="next-btn">
+          Начать тест
+        </Link>
+
         <button className="nav" onClick={() => setIsOpen(true)}>
           <img src="../list-ico-site-white.ico" alt="Навигация" />
           <span>Навигация по темам</span>
