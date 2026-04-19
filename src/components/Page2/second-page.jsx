@@ -1,7 +1,7 @@
 import './second-page.css';
 import { Link } from 'react-router-dom';
 import { useRef, useState } from 'react';
-import NavModal from '../NavModal/NavModal'; // 👈 отдельный компонент
+import NavModal from '../NavModal/NavModal'; 
 
 export default function Page2() {
 
@@ -15,7 +15,7 @@ export default function Page2() {
   return (
     <div className="learn-container">
 
-      {/* ================= CONTENT ================= */}
+
       <main className="content">
 
         <header className="learn-header">
@@ -84,7 +84,7 @@ export default function Page2() {
 
       </main>
 
-      {/* ================= SIDEBAR ================= */}
+
       <aside className="sidebar right">
 
         <Link to="/test" className="next-btn">
@@ -101,7 +101,7 @@ export default function Page2() {
 
       </aside>
 
-      {/* ================= MODAL (ОТДЕЛЬНЫЙ КОМПОНЕНТ) ================= */}
+      
       <NavModal
         isOpen={isOpen}
         setIsOpen={setIsOpen}
