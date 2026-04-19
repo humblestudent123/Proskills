@@ -6,6 +6,7 @@ const AIQuiz = () => {
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const [showResults, setShowResults] = useState(false);
   const [quizCompleted, setQuizCompleted] = useState(false);
+  const [answersChecked, setAnswersChecked] = useState({});
 
   const questions = [
     {
@@ -32,12 +33,23 @@ const AIQuiz = () => {
     }
   ];
 
-  const handleAnswerSelect = (questionId, answerIndex) => {
-    setSelectedAnswers((prev) => ({
-      ...prev,
-      [questionId]: answerIndex,
-    }));
-  };
+const handleAnswerSelect = (questionId, answerIndex) => {
+  // если уже отвечено — блокируем
+  if (answersChecked[questionId] !== undefined) return;
+
+  const isCorrect =
+    questions.find((q) => q.id === questionId).correctAnswer === answerIndex;
+
+  setSelectedAnswers((prev) => ({
+    ...prev,
+    [questionId]: answerIndex,
+  }));
+
+  setAnswersChecked((prev) => ({
+    ...prev,
+    [questionId]: isCorrect,
+  }));
+};
 
   const handleNext = () => {
     if (currentQuestion < questions.length - 1) {
@@ -128,17 +140,30 @@ const AIQuiz = () => {
         <h2>{currentQ.question}</h2>
 
         <div className="options">
-          {currentQ.options.map((opt, index) => (
-            <label key={index} className="option">
-              <input
-                type="radio"
-                name={`q-${currentQ.id}`}
-                checked={selectedAnswers[currentQ.id] === index}
-                onChange={() => handleAnswerSelect(currentQ.id, index)}
-              />
-              <span>{opt}</span>
-            </label>
-          ))}
+          {currentQ.options.map((option, index) => {
+            const isSelected = selectedAnswers[currentQ.id] === index;
+            const isAnswered = answersChecked[currentQ.id] !== undefined;
+            const isCorrect = currentQ.correctAnswer === index;
+          
+            let className = "option";
+          
+            if (isAnswered) {
+              if (isCorrect) className += " correct";
+              else if (isSelected && !isCorrect) className += " wrong";
+            }
+          
+            return (
+              <label key={index} className={className}>
+                <input
+                  type="radio"
+                  name={`q-${currentQ.id}`}
+                  checked={isSelected}
+                  onChange={() => handleAnswerSelect(currentQ.id, index)}
+                />
+                <span>{option}</span>
+              </label>
+            );
+          })}
         </div>
       </div>
 
@@ -147,9 +172,12 @@ const AIQuiz = () => {
           Назад
         </button>
 
-        <button onClick={handleNext}>
-          {currentQuestion === questions.length - 1 ? "Завершить" : "Далее"}
-        </button>
+      <button
+        onClick={handleNext}
+        disabled={selectedAnswers[currentQ.id] === undefined}
+      >
+        {currentQuestion === questions.length - 1 ? "Завершить" : "Далее"}
+      </button>
       </div>
     </div>
   );
