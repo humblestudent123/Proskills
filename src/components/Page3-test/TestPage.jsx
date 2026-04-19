@@ -33,12 +33,30 @@ const AIQuiz = () => {
     }
   ];
 
+const shuffleArray = (array) => {
+  return [...array].sort(() => Math.random() - 0.5);
+};
+
+
+const [shuffledQuestions] = useState(() =>
+  questions.map((q) => {
+    const shuffledOptions = shuffleArray(q.options);
+
+    return {
+      ...q,
+      options: shuffledOptions,
+      correctAnswerIndex: shuffledOptions.indexOf(q.options[q.correctAnswer])
+    };
+  })
+);
+
 const handleAnswerSelect = (questionId, answerIndex) => {
-  // если уже отвечено — блокируем
   if (answersChecked[questionId] !== undefined) return;
 
+  const question = shuffledQuestions.find(q => q.id === questionId);
+
   const isCorrect =
-    questions.find((q) => q.id === questionId).correctAnswer === answerIndex;
+    question.correctAnswerIndex === answerIndex;
 
   setSelectedAnswers((prev) => ({
     ...prev,
@@ -67,11 +85,13 @@ const handleAnswerSelect = (questionId, answerIndex) => {
 
   const calculateScore = () => {
     let correct = 0;
-    questions.forEach((q) => {
-      if (selectedAnswers[q.id] === q.correctAnswer) {
+
+    shuffledQuestions.forEach((q) => {
+      if (answersChecked[q.id]) {
         correct++;
       }
     });
+
     return correct;
   };
 
@@ -116,7 +136,7 @@ const handleAnswerSelect = (questionId, answerIndex) => {
     );
   }
 
-  const currentQ = questions[currentQuestion];
+  const currentQ = shuffledQuestions[currentQuestion];
 
   return (
     <div className="page">
@@ -143,7 +163,7 @@ const handleAnswerSelect = (questionId, answerIndex) => {
           {currentQ.options.map((option, index) => {
             const isSelected = selectedAnswers[currentQ.id] === index;
             const isAnswered = answersChecked[currentQ.id] !== undefined;
-            const isCorrect = currentQ.correctAnswer === index;
+            const isCorrect = currentQ.correctAnswerIndex === index;
           
             let className = "option";
           

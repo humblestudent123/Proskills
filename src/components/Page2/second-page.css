@@ -1,24 +1,103 @@
-/* =========================
-   BASE
-========================= */
-body  {
-  background-color: rgb(26, 26, 26);
+body {
+  margin: 0;
+  background: rgb(26, 26, 26);
+  font-family: Inter, sans-serif;
+}
 
+/* =========================
+   LAYOUT
+========================= */
+
+.learn-container {
+  display: flex;
+  min-height: 100vh;
+  color: white;
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.sidebar {
+  width: 260px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  background: #0b0b0b;
+  padding: 20px;
+
+
+  border-right: 1px solid rgba(255,255,255,0.08);
+  border-right: none;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.nav-img {
+}
+
+.sidebar .nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 12px 10px;
+  text-decoration: none;
+  color: white;
+  border-radius: 8px;
+  transition: 0.2s;
+}
+
+.sidebar .nav:hover {
+  background: #1f1f1f;
 }
 
 
-.learn-container {
-  background: #0b0b0b;
-  color: #fff;
-  min-height: 100vh;
+.sidebar .nav img {
+  width: 20px;
+}
 
-  padding: 60px 20px;
+.sidebar .nav #ico {
+  width: 20px;
+  margin-right: 10px; /* вместо padding */
+}
 
-  /* 🔥 ВОТ ГЛАВНОЕ ИСПРАВЛЕНИЕ */
+
+.sidebar .nav #nav {
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+}
+
+.sidebar button {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  background: #1f1f1f;
+  border: none;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: left;
+  transition: 0.2s;
+}
+
+.sidebar button:hover {
+  background: #2a2a2a;
+}
+
+/* =========================
+   CONTENT
+========================= */
+
+.content {
+  flex: 1;
+  padding: 60px 40px;
   max-width: 900px;
   margin: 0 auto;
-
-  font-family: Inter, sans-serif;
 }
 
 /* =========================
@@ -33,13 +112,12 @@ body  {
 .badge {
   display: inline-block;
   padding: 6px 14px;
-  background: #ffffff;
+  background: #fff;
   color: #000;
   border-radius: 20px;
   font-size: 12px;
   margin-bottom: 15px;
 }
-
 
 .learn-header h1 {
   font-size: 36px;
@@ -47,12 +125,12 @@ body  {
 }
 
 .subtitle {
-  opacity: 0.7;
+  opacity: 0.6;
   font-size: 16px;
 }
 
 /* =========================
-   THEORY CARDS
+   THEORY
 ========================= */
 
 .theory {
@@ -61,20 +139,19 @@ body  {
   gap: 20px;
 }
 
+/* =========================
+   CARDS (ОДНА ВЕРСИЯ)
+========================= */
+
 .card {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
+  background: #1f1f1f;
   padding: 25px;
-  backdrop-filter: blur(6px);
-  transition: 0.3s ease;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.08);
 }
-
-
 
 .card h2 {
   margin-bottom: 10px;
-  font-size: 20px;
 }
 
 .card p,
@@ -98,40 +175,35 @@ body  {
   border-left: 3px solid #fff;
 }
 
-.summary h2 {
-  margin-bottom: 10px;
-}
-
 /* =========================
-   ACTION BUTTON
+   ACTIONS
 ========================= */
 
 .actions {
-  margin-top: 40px;
   text-align: center;
+  margin-top: 40px;
+}
+
+.sidebar right {
+
 }
 
 .next-btn {
   padding: 14px 28px;
-  border-radius: 12px;
-  border: none;
-  background: #fff;
-  color: #000;
-  font-size: 16px;
-  cursor: pointer;
-  transition: 0.3s;
+  background: white;
+  color: black;
+  border-radius: 5px;
   text-decoration: none;
+  display: inline-block;
+  transition: 0.3s;
+  width: 210px;
+}
+
+.text-next-btn  {
+  text-align: center;
+  font-size: 16px;
 }
 
 .next-btn:hover {
-  background: #cfcfcf;
-  transform: translateY(-2px);
-}
-
-
-
-
-.card {
-     background-color: rgb(31, 31, 31);
-     color: white;
+  background: #ddd;
 }

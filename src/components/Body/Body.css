@@ -9,6 +9,14 @@
   border-radius: 50px 50px 0 0;
 }
 
+h2 {
+  color: white;
+}
+
+p {
+  color: white;
+}
+
 
 .content-section {
   display: flex;
@@ -114,7 +122,7 @@
   display: flex;
   gap: 30px; 
   justify-content: center; 
-  flex-wrap: wrap; 
+  flex-wrap: wrap;
 }
 
 .block-1, .block-2, .block-3 {
