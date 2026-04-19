@@ -76,7 +76,7 @@ print(tokenizer.decode(outputs[0]))
             <code>
 from diffusers import StableDiffusionPipeline{"\n"}
 import torch{"\n\n"}
-pipe = StableDiffusionPipeline.from_pretrained("CompVis/stable-diffusion-v1-4", torch_dtype=torch.float16){"\n"}
+pipe = StableDiffusionPipeline.from_pretrained("CompVis/stable-diffusion-v1-4",{"\n"}torch_dtype=torch.float16){"\n"}
 pipe = pipe.to("cuda"){"\n\n"}
 prompt = "Киберпанк город ночью, неоновый свет"{"\n"}
 image = pipe(prompt).images[0]{"\n"}
