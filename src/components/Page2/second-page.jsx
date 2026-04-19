@@ -5,15 +5,36 @@ import NavModal from '../NavModal/NavModal';
 
 export default function Page2() {
 
-  const refTheory = useRef(null);
+  
   const [isOpen, setIsOpen] = useState(false);
 
-  const scrollToSection = (ref) => {
-    ref.current?.scrollIntoView({ behavior: 'smooth' });
+  const refs = {
+    theory: useRef(null),
+    ml: useRef(null),
+    nn: useRef(null),
+  };
+
+  const topics = [
+  { id: 1, title: '1 - Начало работы с ии', ref: 'intro' },
+  { id: 2, title: '2 - установка и поиск моделей', ref: 'howItWorks' },
+  { id: 3, title: '3 - корректные запросы', ref: 'usage' },
+];
+
+  const scrollToSection = (refName) => {
+    refs[refName]?.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
     <div className="learn-container">
+
+
+
+      <NavModal
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+        scrollToSection={scrollToSection}
+        topics={topics}
+      />
 
 
       <main className="content">
@@ -30,7 +51,7 @@ export default function Page2() {
 
 
 
-        <div className="card" ref={refTheory}>
+        <div className="card" ref={refs.intro}>
         <h2>Что такое ИИ?</h2>
         <p>Искусственный интеллект — это область компьютерных наук, которая занимается созданием систем, способных выполнять задачи, требующие человеческого мышления. Речь идёт не о “разумных машинах” в человеческом смысле, а о программах, которые умеют анализировать данные, находить закономерности, делать выводы и решать задачи.
               
@@ -52,7 +73,7 @@ export default function Page2() {
 
 
 
-        <div className="card" ref={refTheory}>
+        <div className="card" ref={refs.howItWorks}>
            <h2>Как работает нейросеть?</h2>
         <p>Нейросеть — это система, которая умеет находить закономерности в данных и использовать их для решения задач. Её принцип работы вдохновлён устройством человеческого мозга, но реализован в виде математической модели.
 
@@ -70,7 +91,7 @@ export default function Page2() {
         </div>
 
 
-      <div className="card" ref={refTheory}>
+      <div className="card" ref={refs.usage}>
         <h2>Где используется ИИ?</h2>
         <ul>
           <li>Чат-боты (ChatGPT)</li>
@@ -102,12 +123,12 @@ export default function Page2() {
       </aside>
 
       
-      <NavModal
-        isOpen={isOpen}
-        setIsOpen={setIsOpen}
-        scrollToSection={scrollToSection}
-        refTheory={refTheory}
-      />
+<NavModal
+  isOpen={isOpen}
+  setIsOpen={setIsOpen}
+  scrollToSection={(name) => refs[name].current.scrollIntoView({ behavior: 'smooth' })}
+  topics={topics}
+/>
 
     </div>
   );

@@ -1,51 +1,34 @@
-import { Link } from 'react-router-dom';
-import './NavModal.css'
+// src/components/NavModal/NavModal.jsx
+import './NavModal.css';
 
-
-
-export default function NavModal({
-  isOpen,
-  setIsOpen,
-  scrollToSection,
-  refTheory
-}) {
+export default function NavModal({ isOpen, setIsOpen, scrollToSection, topics }) {
   if (!isOpen) return null;
 
   const handleClose = () => setIsOpen(false);
 
   return (
     <div className="modal-overlay" onClick={handleClose}>
-
-      <div
-        className="modal"
-        onClick={(e) => e.stopPropagation()}
-      >
-
-        <p id='head'>1. Введение в искусственный интеллект </p>
-
-        <div className="modal-actions">
-
-          <button
-            onClick={() => {
-              scrollToSection(refTheory);
-              handleClose();
-            }}
-          >
-            Теория
-          </button>
-
-          <Link
-            to="/test"
-            className="modal-link"
-            onClick={handleClose}
-          >
-            Тест
-          </Link>
-
-        </div>
-
+      <div className="modal" onClick={(e) => e.stopPropagation()}>
+        <h2 className="modal-title">Темы курса</h2>
+        <ul className="topics-list">
+          {topics.map((topic) => (
+            <li key={topic.id} className="topic-item">
+              <button
+                className="topic-button"
+                onClick={() => {
+                  scrollToSection(topic.ref);
+                  handleClose();
+                }}
+              >
+                {topic.title}
+              </button>
+            </li>
+          ))}
+        </ul>
+        <button className="close-modal-btn" onClick={handleClose}>
+          Закрыть
+        </button>
       </div>
-
     </div>
   );
 }
