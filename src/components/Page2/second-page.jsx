@@ -8,16 +8,16 @@ export default function Page2() {
   
   const [isOpen, setIsOpen] = useState(false);
 
-  const refs = {
-    theory: useRef(null),
-    ml: useRef(null),
-    nn: useRef(null),
-  };
+const refs = {
+  intro: useRef(null),
+  howItWorks: useRef(null),
+  usage: useRef(null),
+};
 
-  const topics = [
-  { id: 1, title: '1 - Начало работы с ии', ref: 'intro' },
-  { id: 2, title: '2 - установка и поиск моделей', ref: 'howItWorks' },
-  { id: 3, title: '3 - корректные запросы', ref: 'usage' },
+const topics = [
+  { id: 1, title: '1 - Начало работы с ИИ', path: '/intro' },
+  { id: 2, title: '2 - Установка и поиск моделей', path: '/models' },
+  { id: 3, title: '3 - Корректные запросы', path: '/prompts' },
 ];
 
   const scrollToSection = (refName) => {

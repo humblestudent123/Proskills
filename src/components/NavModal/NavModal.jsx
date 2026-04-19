@@ -1,7 +1,9 @@
-// src/components/NavModal/NavModal.jsx
+import { useNavigate } from 'react-router-dom';
 import './NavModal.css';
 
-export default function NavModal({ isOpen, setIsOpen, scrollToSection, topics }) {
+export default function NavModal({ isOpen, setIsOpen, topics }) {
+  const navigate = useNavigate();
+
   if (!isOpen) return null;
 
   const handleClose = () => setIsOpen(false);
@@ -16,7 +18,7 @@ export default function NavModal({ isOpen, setIsOpen, scrollToSection, topics })
               <button
                 className="topic-button"
                 onClick={() => {
-                  scrollToSection(topic.ref);
+                  navigate(topic.path);
                   handleClose();
                 }}
               >
